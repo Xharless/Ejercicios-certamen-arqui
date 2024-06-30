@@ -13,5 +13,7 @@ loop:
     cmp r5,r6
     subpl r5, N, r5 @N-a
     submi r6, N, r6 @N-b
-    streq r0, [r3, r4, r8]
-    strmi r0, [r3]
+    strpl r5, [r3, r4, lsl #2]
+    strmi r6, [r3, r4, lsl #2]
+    subs r4, r4, 1
+    bpl loop
